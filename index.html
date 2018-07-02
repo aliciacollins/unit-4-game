@@ -1,141 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="assets/css/style.css">
 
-  <title>simple game of thrones game</title>
-
-  <style type="text/css">
-
-    .got-image {
-      width: 150px;
-      height: 300px;
-    }
-
-    .winLoss{ 
-        display: block;
-        border: 2px solid lightgrey;
-        color: lightgrey;
-        padding: 5px;
-        margin: 15px;
-        background-color: black;
-        height: 150px;
-        width: 300px;
-        font-size: 25px;
-    }    
-    h4{ 
-        display: block;
-        border: 2px solid lightgrey;
-        color: black;
-        padding: 5px;
-        margin: 15px;
-        background-color: url("bkgrey.gif");
-        height: 150px;
-        width: 300px;
-        font-size: 25px;
-    }
-body  {
-    background-image: url("bkgrey.gif");
-    /* why doesn't this background work */
-    background-color: #cccccc;
-}
-
-  </style>
+  <title>Document</title>
 
 </head>
+
 <body>
-
-  <h1>Number to Guess: <span id="number-to-guess"></span></h1>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Game of Thrones</h1>
+      <p class="lead">This is a modified jumbotron that occupies the entire horizontal space of its parent.</p>
+    </div>
+  </div>
+  <h1>Number to Guess:
+    <span id="number-to-guess"></span>
+  </h1>
   <h3>You will be given a random number at the start of the game</h3>
-  <p>There are five house Sigils associated with radom values. Click the Sigils to add a specific amount of points to your total score</p>
-<P> To win the game you must match the total score to the random number generated at the beginning of the game.</P>
-<div>Value to Match:</div>
-<div class = "winLoss">  Wins: <span>0</span>
-    <br><br>Losses: <span>0</span>
-    <h4><span id = "playerScore"></span></h4>
-</div>
+  <p>There are five house Sigils associated with radom values. Click the Sigils to add a specific amount of points to your total
+    score</p>
+  <P> To win the game you must match the total score to the random number generated at the beginning of the game.</P>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        Value to Match:
+      </div>
+      <div class="col">
+        <div class="winLoss"> Wins:
+          <span>0</span>
+          <br>
+          <br>Losses:
+          <span>0</span>
+        </div>
+        <div class="col">
+          <h4><span id="playerScore"></span>
+          </h4>
+        </div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+  </div>
+    
+  
 
-  <!-- Note that this div is now empty. We will fill it dynamically -->
-  <div id="gameImages">
-  <img class="wolf" src= "got1.jpg" alt = "wolf" value="1">
-  <img class="stag" src= "got2.jpg" alt = "stag" value="2">
-  <img class="dragon" src= "got3.jpg" alt = "dragon" value="3">
-  <img class="lion" src= "got4.jpg" alt = "lion" value="4">
-  <img class="squid" src= "got5.jpg" alt = "squid" value="5">
   </div>
 
+  
+  <div id="gameImages">
+    <img class="wolf image" src="GOT1.jpg" alt="wolf" data-index = "1">
+    <img class="stag image" src="GOT2.jpg" alt="stag" data-index = "2">
+    <img class="dragon image" src="GOT3.jpg" alt="dragon" data-index = "3">
+    <img class="lion image" src="GOT4.jpg" alt="lion" data-index = "4">
+    <img class="squid image" src="GOT5.jpg" alt="squid" data-index = "5">
+  </div>
+
+b
 
 
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
 
-  var targetNumber = 53;
+    var targetNumber = 53;
 
-  $("#number-to-guess").text(targetNumber);
+    $("#number-to-guess").text(targetNumber);
 
-  var counter = 0;
+    var counter = 0;
 
-  var numberOptions = [10, 5, 3, 7];
-  
-  for (var i = 0; i < numberOptions.length; i++) {
+    $(".image").on("click", function(){
+       var value = $(this).data();
+       console.log(value);
+    })
+    //var numberOptions = [10, 5, 3, 7];
 
-    //how do I connect multiple images?
-    var imageGot = $("<img>");
-
-    // First each got will be given the class ".got-image".
-    // This will allow the CSS to take effect.
-    imageGot.addClass("got-image");
-
-  //I need to attach values to multiple images
-    imageGot.attr("src", "got2.jpg");
-
-//not exactly sure what gotvalue does
-    imageGot.attr("data-gotvalue", numberOptions[i]);
-   
-
-   
-    $("#gameImages").append(imageGot);
-  }
-
-  $(".got-image").on("click", function() {
-
+   $(".image").each(function(index, elem){
+     var randomValue = Math.ceil(Math.random()*10);
+      $(elem).attr("data-value", randomValue);
+    });
     
-    var gotValue = ($(this).attr("data-gotvalue"));
-    gotValue = parseInt(gotValue);
-   
-   
-    counter += gotValue;
-    console.log (gotValue);
-    console.log (counter);
+    
+   for (var i = 0; i < numberOptions.length; i++) {
 
-    $("#playerScore").text("Your current score is: " + counter);
+      //how do I connect multiple images?
+      var imageGOT = $("<img>");
 
-    if (counter === targetNumber) {
-      alert("You win!");
-      win++;
+      // First each GOT will be given the class ".GOT-image".
+      //I WANT TO ADD A NUMBER AFTER EACD GOT TO ACCESS DIFFERENT IMMAGES BUT DON'T KNOW HOW
+      // This will allow the CSS to take effect.
+      imageGOT.addClass("GOT-image");
+
+      //I need to attach values to multiple images NEED 12345 ADDED TO GOT
+      imageGOT.attr("src", "GOT2.jpg");
+
+      //not exactly sure what DATA does
+      imageGOT.attr("data-GOTvalue", numberOptions[i]);
+      //i know the numberOption[1] gives 10 but how do I attact that value to the image
+
+
+      $("#gameImages").append(imageGOT);
     }
 
-    else if (counter >= targetNumber) {
-      alert("You lose!!");
-      loss++;
-    }
+    $(".GOT-image").on("click", function () {
 
-  });
+
+      var GOTValue = ($(this).attr("data-GOTvalue"));
+      GOTValue = parseInt(GOTValue);
+
+
+      counter += GOTValue;
+      console.log(GOTValue);
+      console.log(counter);
+
+      $("#playerScore").text("Your current score is: " + counter);
+
+      if (counter === targetNumber) {
+        alert("You win!");
+        win++;
+      }
+
+      else if (counter >= targetNumber) {
+        alert("You lose!!");
+        loss++;
+      }
+
+    });
 
   </script>
 </body>
-</html>
 
-  
-  
-  
-  
-  </script>
-</body>
 </html>

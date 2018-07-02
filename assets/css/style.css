@@ -1,5 +1,33 @@
 
-sigul-img {
-      width: 300px;
+.GOT-image {
+      width: 150px;
       height: 300px;
+    }
+
+.winLoss{ 
+      display: block;
+      border: 2px solid lightgrey;
+      color: lightgrey;
+      padding: 5px;
+      margin: 15px;
+      background-color: black;
+      height: 150px;
+      width: 300px;
+      font-size: 25px;
+}    
+h4{ 
+        
+      border: 2px solid lightgrey;
+      color: black;
+      padding: 5px;
+      margin: 15px;
+      background-color: black;
+      height: 150px;
+      width: 300px;
+      font-size: 25px;
+    }
+body  {
+    background-image: url("../css/image/21fbc51f80876ec00ca761502b9faea4.jpg");
+    /* why doesn't this background work */
+    background-color: #cccccc;
 }
