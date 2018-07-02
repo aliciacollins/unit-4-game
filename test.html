@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <img class="wolf" src= "got1.jpg" alt = "wolf">
+        <img class="stag" src= "got2.jpg" alt = "stag">
+        <img class="dragon" src= "got3.jpg" alt = "dragon">
+        <img class="lion" src= "got4.jpg" alt = "lion">
+        <img class="squid" src= "got5.jpg" alt = "squid">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script type = "text/javascript">
+       
+          images = new ArrayList(); 
+          for(int i = 1; i < 5; i++) { 
+            images.add("Got" + i + ".jpg"); 
+            console.log(images);
+          } 
+        
+        
+        void draw() { 
+           if (images.size() > 1) { 
+           int i = (int)random(1,images.size()); 
+           imgFile = (String)images.get(i); 
+           img = loadImage(imgFile); 
+           image(img, 0, 0);  
+           images.remove(i); 
+           } 
+        } 
+</script>
+</body>
+</html>
