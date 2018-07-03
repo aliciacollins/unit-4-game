@@ -69,8 +69,8 @@
       console.log(value);
 
 
-      counter = counter + value;
-      $("#playerScore").text(counter);
+     counter = counter + value;
+      $("#playerScore").html(counter);
       console.log("counter", counter);
     })
 
@@ -83,30 +83,27 @@
 
 
 
-    $(".GOT").on("click", function () {
+    //   counter = parseInt(counter);
 
-
-      counter = parseInt(counter);
-
-
-      counter += counter;
-
-      console.log("counter", counter);
 
 
       //WHY IS THIS NOT ALERTING A WIN OR LOSS?
-      if (counter === targetNumber) {
+if (counter === targetNumber) {
         alert("You win!");
-        win++;
-        $(".win").text(win);
+        $(".win").html(win++);
+        console.log("counter2", counter);
+        console.log("target2", targetNumber);
+
+        //will this above code work? adding and displaying at the same time? it seems like it would just add 1 each time but since I cant get it to 
       }
+
 
       else if (counter >= targetNumber) {
         alert("You lose!!");
         loss++;
       }
 
-    });
+   //}); 
 
   </script>
 </body>
