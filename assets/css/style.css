@@ -4,19 +4,31 @@
       height: 150px;
     }
 
-.loss{ 
-      padding-top: 20px;
+#loss{ 
+     
+      padding-left: 30px;
       font-size: 25px;
+}
+#win{ 
+   
+        padding-left: 25px;
+        font-size: 25px;     
+
 }    
 h4{    
     color: darkslategray;
-    padding-top: 20px;
     font-size: 25px;
     
 }
 
 
+
+
 body  {
-    /* background-image: url("../css/image/21fbc51f80876ec00ca761502b9faea4.jpg"); */
+    background-image: url("/background1.jpg");
     background-color: #cccccc;
 }
+p {
+    width: 800px;
+}
+

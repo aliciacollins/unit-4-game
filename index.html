@@ -17,24 +17,24 @@
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
       <h1 class="display-4">Game of Thrones</h1>
-      <p class="lead">You will be given a random number at the start of the game. There are five house Sigils associated with radom values. Click the Sigils to add a specific amount of points to your total score.</p>   
+      <p class="lead">You will be given a random number at the start of the game. There are five house Sigils with radom values. Click the Sigils to add a specific amount of points to your total score.</p>   
       <p> To win the game you must match the total score to the random number generated at the beginning of the game.</p>
-
+ 
+  
   <div class="container">
     <div class="row">
         <div class="col">
             <h3>Number to Guess:
                 <span id="number-to-guess"></span>
-            </h3>
+            </h3><br>
           <h4>Player's Current Guess:
-          <span id="playerScore ">0</span></h4>
+          <span id="playerScore">0</span></h4>
         </div>
         <div class="col">
-            <h3 class="win"> Wins: <span>0</span> 
-            </h3>  
-            <h3 class="loss">Losses: <span>0</span>
-            </h3>
-
+          <h3 class = "win">Wins:
+            <span id="win">0</span></h3><br>
+          <h3 class = "loss">Loss: 
+            <span id="loss">0</span></h3>
         </div>
     </div>
   </div>
@@ -53,57 +53,66 @@
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
+   //function reset() {
+
     var win = 0;
     var loss = 0;
-    console.log("win", win);
-    console.log("loss", loss);
+    var counter = 0;
+ 
+  
     var targetNumber = Math.ceil(Math.random() * 100) + 50;
     console.log("targetNumber:", targetNumber);
-
+ // }
+//create target number
     $("#number-to-guess").text(targetNumber);
+//put target number into number to guess
 
-    var counter = 0;
-
+    
     $(".image").on("click", function () {
+
       var value = $(this).data().value;
       console.log(value);
+      // i understand that the data is storing data but not clear on this one
+
 
 
      counter = counter + value;
-      $("#playerScore").html(counter);
-      console.log("counter", counter);
+      $("#playerScore").text(counter);
+      //setting counter to add the value on each click
+      console.log("counter1", counter);
     })
 
 
+
     $(".image").each(function (index, elem) {
-      var randomValue = Math.ceil(Math.random() * 10);
+
+
+
+      var randomValue = Math.ceil((Math.random() * 10));
+
+      console.log("random",(randomValue));
+
+
       $(elem).attr("data-value", randomValue);
     });
-
-
-
-
-       counter = parseInt(counter);
+      // counter = parseInt(counter);
       
-
-
-      //WHY IS THIS NOT ALERTING A WIN OR LOSS?
-if (counter === targetNumber) {
+    $(".image").on("click", function () {
+         
+    if (counter === targetNumber) {
         alert("You win!");
-        $(".win").html(win++);
-        console.log("counter2", counter);
-        console.log("target2", targetNumber);
-
-        //will this above code work? adding and displaying at the same time? it seems like it would just add 1 each time but since I cant get it to 
-      }
-
-
+        win++
+        $("#win").text(win);
+        console.log("win2", win);
+  
+        }
       else if (counter >= targetNumber) {
         alert("You lose!!");
         loss++;
+        $("#loss").text(loss);
+        console.log("loss2", loss);
       }
-
-   //}); 
+   }); 
 
   </script>
 </body>
