@@ -47,18 +47,18 @@
     <img class="lion image" src="GOT4.jpg" alt="lion" data-index="4">
     <img class="squid image" src="GOT5.jpg" alt="squid" data-index="5">
   </div>
-
+  <button type="button" id = "restart" class="btn btn-secondary btn-lg btn-block">Play Game</button>
 
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
   <script type="text/javascript">
-   //function reset() {
+   
 
-    var win = 0;
-    var loss = 0;
-    var counter = 0;
- 
+    var win = "";
+    var loss = "";
+    
+
   
     var targetNumber = Math.ceil(Math.random() * 100) + 50;
     console.log("targetNumber:", targetNumber);
@@ -67,9 +67,9 @@
     $("#number-to-guess").text(targetNumber);
 //put target number into number to guess
 
-    
+    var counter = 0;
     $(".image").on("click", function () {
-
+      
       var value = $(this).data().value;
       console.log(value);
       // i understand that the data is storing data but not clear on this one
@@ -95,7 +95,7 @@
 
       $(elem).attr("data-value", randomValue);
     });
-      // counter = parseInt(counter);
+     
       
     $(".image").on("click", function () {
          
@@ -104,16 +104,18 @@
         win++
         $("#win").text(win);
         console.log("win2", win);
-  
+        
         }
       else if (counter >= targetNumber) {
         alert("You lose!!");
         loss++;
         $("#loss").text(loss);
         console.log("loss2", loss);
+        
       }
    }); 
-
+  
+//how do I start new game
   </script>
 </body>
 
