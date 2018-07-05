@@ -16,16 +16,21 @@
 
 }    
 h4{    
-    color: darkslategray;
+    color: whitesmoke;
     font-size: 25px;
     
 }
 
-
+.jumbotron {
+    height: 250px;
+    background-color: rgb(31, 32, 32);
+    color: whitesmoke;
+    padding-top: 20px;
+}
 
 
 body  {
-    background-image: url("/background1.jpg");
+    background-image: url("image/background2.jpg");
     background-color: #cccccc;
 }
 p {

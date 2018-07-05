@@ -19,8 +19,8 @@
       <h1 class="display-4">Game of Thrones</h1>
       <p class="lead">You will be given a random number at the start of the game. There are five house Sigils with radom values. Click the Sigils to add a specific amount of points to your total score.</p>   
       <p> To win the game you must match the total score to the random number generated at the beginning of the game.</p>
- 
-  
+ </div>
+  </div>
   <div class="container">
     <div class="row">
         <div class="col">
@@ -69,6 +69,8 @@
 
     var counter = 0;
     $(".image").on("click", function () {
+      console.log("value",($(this)));
+      console.log(this.dataset.value);
       
       var value = $(this).data().value;
       console.log(value);
@@ -80,19 +82,18 @@
       $("#playerScore").text(counter);
       //setting counter to add the value on each click
       console.log("counter1", counter);
-    })
-
+    });
 
 
     $(".image").each(function (index, elem) {
-
+// this is accessing the array
 
 
       var randomValue = Math.ceil((Math.random() * 10));
 
       console.log("random",(randomValue));
 
-
+//below this is assinging the attribute ... value is now valued at the random variable
       $(elem).attr("data-value", randomValue);
     });
      
